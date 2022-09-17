@@ -54,8 +54,10 @@
                 $data = mysqli_fetch_array($result);
                 if (password_verify($user_password, $data['password'])) {
                     $_SESSION['user_id'] = $data['id'];
+                    $_SESSION['user_name'] = $data['login'];
                     echo 'Login OK!';
                     header('Location: locked.php');
+                    exit;
                 } else {
                     header('Location: index.php');
                     echo '<p>Wrong credentials!</p>';

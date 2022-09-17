@@ -8,16 +8,17 @@
     <title>Locked Page</title>
 </head>
 <body>
-    <h1 style="text-align: center; margin-top: 20%; font-family: 'Arial';">You can see locked page!</h1>
-
     <?php
-        session_start();
-        if(!isset($_SESSION['user_id'])){
-            header('Location: index.php');
-            exit;
-        } else {
-            //show
-        }
+    session_start();
+    if(!isset($_SESSION['user_id'])){
+        header('Location: index.php');
+        exit;
+    } else {
+        $user = $_SESSION['user_name'];
+    }
     ?>
+    <h1 style="text-align: center; margin-top: 20%; font-family: 'Arial';">You can see locked page!</h1>
+    <h2 style="text-align: center; font-family: 'Arial';">Welcome, <span style="color: darkcyan"><?php echo $user; ?></span>!</h2>
+    <i style="text-align: center; display: block;"><a href="exit.php" style="color: brown; font-family: 'Arial';">Выйти с сайта</a></i>
 </body>
 </html>
